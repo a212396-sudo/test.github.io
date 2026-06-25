@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurul Haleez | E-Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --primary-dark: #1b5e20;
+            --accent: #81c784;
+            --background: #f8fafd;
+            --surface: #ffffff;
+            --text-main: #212121;
+            --text-muted: #666666;
+            --border: #e0e0e0;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background-color: rgba(46, 125, 50, 0.05);
+        }
+
+        /* Container Section Layout */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 2rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 4px;
+            background-color: var(--primary-light);
+            border-radius: 2px;
+        }
+
+        /* Home/Hero Section */
+        #home {
+            padding-top: 7rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            background: var(--surface);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        .hero-tag {
+            background-color: rgba(46, 125, 50, 0.1);
+            color: var(--primary-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .meta-info {
+            margin: 1.5rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .meta-item strong {
+            color: var(--primary-dark);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        .sdg-box {
+            background: linear-gradient(135deg, #3f7e44, #2e7d32);
+            color: #ffffff;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 25px rgba(46, 125, 50, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sdg-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .sdg-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Grid Cards Layout (Labs & Projects) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .card-content {
+            padding: 1.75rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+        }
+
+        .reflection-box {
+            background-color: #f1f8e9;
+            border-left: 4px solid var(--primary-light);
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #33691e;
+            margin-top: auto;
+            font-style: italic;
+        }
+
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: #24292e;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.75rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .btn-github:hover {
+            background-color: #000000;
+        }
+
+        /* Reflection Journey Section */
+        .reflection-large {
+            background: var(--surface);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px var(--shadow);
+            border: 1px solid var(--border);
+            font-size: 1.1rem;
+            color: var(--text-main);
+            line-height: 1.8;
+            position: relative;
+        }
+
+        /* Skills Tech Stack Section */
+        .skills-container {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            list-style: none;
+        }
+
+        .skill-tag {
+            background-color: #e8f5e9;
+            color: var(--primary-dark);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid rgba(46, 125, 50, 0.15);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Resources Section */
+        .resources-box {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .resources-list {
+            list-style-type: none;
+        }
+
+        .resources-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .resources-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resources-list strong {
+            color: var(--primary-dark);
+            min-width: 150px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1b5e20;
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            margin-top: 5rem;
+            font-size: 0.95rem;
+            border-top: 4px solid var(--primary-light);
+        }
+
+        footer p {
+            margin: 0.4rem 0;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            #home {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding-top: 5rem;
+            }
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .meta-info {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            section {
+                padding: 4rem 1.25rem 1.5rem 1.25rem;
+            }
+            .hero-content {
+                padding: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#home" class="logo">Haleez.Dev</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#labs">Labs</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="home">
+            <div class="hero-content">
+                <span class="hero-tag">Mobile App Development Portfolio</span>
+                <h1>Nurul Haleez Binti Abdul Rahim</h1>
+                
+                <div class="meta-info">
+                    <div class="meta-item"><strong>Matric No:</strong> A212396</div>
+                    <div class="meta-item"><strong>Programme:</strong> TTTM2213</div>
+                    <div class="meta-item"><strong>Instructor:</strong> Dr. Rimaniza</div>
+                </div>
+                
+                <p class="intro-text">
+                    THIS IS MY E PORTFOLIO , here is where it shows my progress for making my apps. Explore my labs, projects architecture, and developmental journey across native Android technologies.
+                </p>
+            </div>
+
+            <div class="sdg-box">
+                <div class="sdg-number">SDG 15</div>
+                <div class="sdg-title">Life On Land</div>
+                <p>I choose this SDG because my application is engineered as a plant encyclopedia, aiming to educate users on flora sustainability and protection ecosystem alignment.</p>
+            </div>
+        </section>
+
+        <section id="labs">
+            <h2 class="section-title">Laboratory Exercises</h2>
+            <div class="grid-container">
+                
+                <article class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/QM5nC6QHoaE?si=9tT3zdb4bhLE2pVl" title="Lab 1 Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Lab 1: UI Foundations</h3>
+                        <p class="card-description">Exploring fundamental structural mechanisms using declarations in Jetpack Compose UI layout design.</p>
+                        <div class="reflection-box">
+                            I learned how to use layout box, row and column to make my apps structural integrity efficient. Utilizing these configurations allows me to place visual assets seamlessly.
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Jz47MtpqA9M?si=-3VTQlKD3043cAS1" title="Lab 2 Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Lab 2: Interaction & States</h3>
+                        <p class="card-description">Implementing interaction capabilities, event handling listeners, and visual feedback elements.</p>
+                        <div class="reflection-box">
+                            I make buttons and there also animation to make it smooth when changing values. Handling states successfully creates modern reactive workflows that respond directly to user operations.
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/UtvvYvUO-PM?si=G6EKqAoFpuN-bvpc" title="Lab 3 Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Lab 3: Material Design Styling</h3>
+                        <p class="card-description">Applying unified Design Systems with custom palettes, token definitions, and components styling.</p>
+                        <div class="reflection-box">
+                            I used material theme in my apps. I use it to make my apps theme turn into green suitable with my apps concept, maintaining optimal compliance regarding thematic color identity matches.
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/nvTeqAPma5s?si=-cuzodTyortuCvbb" title="Lab 4 Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Lab 4: Advanced Jetpack Navigation</h3>
+                        <p class="card-description">Constructing robust graphs with dynamic destination flows utilizing standard Jetpack component nodes.</p>
+                        <div class="reflection-box">
+                            My apps now can go to other screens using navhost and navcontroller, also I saved my fav plant inside favourite page using plantviewmodel to encapsulate global screen memory smoothly.
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/6tbxRYk0j3k?si=G4a7BZWyKzeCvEpw" title="Lab 5 Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Lab 5: Room Local Database</h3>
+                        <p class="card-description">Integrating persistent caching architectures using SQLite system mapping query abstractions.</p>
+                        <div class="reflection-box">
+                            I use room, csv so my data can be safe and process efficiently locally. Offline accessibility data streams provide continuous availability without active server drops dependencies.
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Core Projects</h2>
+            <div class="grid-container">
+
+                <article class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/EHYaW7AqlRM?si=U2aIbb1Sx9i1-uf6" title="Project 1 Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Project 1: AboutGreen (v1)</h3>
+                        <p class="card-description"><strong>Problem Statement:</strong> I make 5 screens, iused mvvm architecture to separate backend UI rules and state components cleanly.</p>
+                        <div class="reflection-box">
+                            <strong>Lessons learned:</strong> I can save my fav plant inside fav page. Developing structured MVVM architectures makes it straightforward to manipulate separate data feeds cleanly without clutter.
+                        </div>
+                        <a href="https://github.com/a212396-sudo/A212396_Dr.Rimaniza_Project1" class="btn-github" target="_blank">
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/UM7aqBVh-jo?si=shzobzyI4SyJ_rKE" title="Project 2 Video Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Project 2: AboutGreen (v2 Cloud & APIs)</h3>
+                        <p class="card-description"><strong>Problem Statement:</strong> Make more than 7 screen, I use firebase, plant.id api to ensure deep scanning capabilities and robust cloud extensions function properly.</p>
+                        <div class="reflection-box">
+                            <strong>Lessons learned:</strong> I can see my description update in firestore in real time, user can update the description of the plants together across multiple simultaneous sessions instantly.
+                        </div>
+                        <a href="https://github.com/a212396-sudo/A212396_Dr.Rimaniza_Project2" class="btn-github" target="_blank">
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="reflection">
+            <h2 class="section-title">Reflection & Learning Journey</h2>
+            <div class="reflection-large">
+                Throughout this course I learned to built an apps based on my creativity , I learned how to make a proper apps step by step . I find it easier to make an apps w this learning journey. Breaking down complex requirements into standalone components has fundamentally elevated my programmatic engineering perspective.
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Skills & Tech Stack</h2>
+            <div class="skills-container">
+                <ul class="skills-list">
+                    <li class="skill-tag">Kotlin</li>
+                    <li class="skill-tag">Jetpack Compose</li>
+                    <li class="skill-tag">Room Database</li>
+                    <li class="skill-tag">Retrofit API</li>
+                    <li class="skill-tag">Firebase Firestore</li>
+                    <li class="skill-tag">MVVM Architecture</li>
+                    <li class="skill-tag">Jetpack Navigation</li>
+                    <li class="skill-tag">UI/UX Design Layouts</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="resources">
+            <h2 class="section-title">Resources & Acknowledgements</h2>
+            <div class="resources-box">
+                <ul class="resources-list">
+                    <li>
+                        <strong>Plant Identification:</strong> plant.id API for backend automated plant classification integrations.
+                    </li>
+                    <li>
+                        <strong>AI Assistance:</strong> Generative systems (ChatGPT and Gemini) utilized for continuous debugging, layout optimizations, and structured styling guidance.
+                    </li>
+                    <li>
+                        <strong>Course Assets:</strong> Base architectural blueprints and lab materials supplied under curriculum mentorship instruction.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p><strong>Nurul Haleez Binti Abdul Rahim</strong> | Matric No: A212396</p>
+        <p>Programme: TTTM2213 | Instructor: Dr. Rimaniza</p>
+        <p>&copy; 2026 Student E-Portfolio. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
